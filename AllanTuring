@@ -1,0 +1,49 @@
+package codenights;
+import java.util.*;
+
+public class AllanTuring {
+
+	public static void main(String[] args) {
+
+		Scanner scan = new Scanner(System.in);
+
+		int n = scan.nextInt();
+
+		int turingBase = 36;
+				
+		String str = scan.nextLine();
+		
+		for(int i =0; i < n; i++) {
+			
+			str = scan.nextLine().trim();
+
+			String[] arr = str.split("\\s+");
+
+			int base = Integer.parseInt(arr[0]);
+
+			String value = arr[1];
+
+			if(!(base == 10 || base == 16))
+				System.out.println("-Error");
+
+			else {
+
+				System.out.println(convertBase(value, base, turingBase));
+
+			}
+		}
+}
+
+public static String convertBase(String value, int base, int turingBase){
+
+	try {
+		
+		//Capable of converting any base
+		return Integer.toString(Integer.parseInt(value, base), turingBase).toUpperCase();
+		
+	} catch (Exception e) {
+		return "-Error";
+	}
+}
+
+}
