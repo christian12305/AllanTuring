@@ -1,0 +1,131 @@
+package codenights;
+import java.util.*;
+
+public class MasterpieceSignature {
+
+	public static void main(String[] args) {
+
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+
+		//Fill map
+		for(int i = 0; i < 9; i++) {
+			map.put(i+1+"", 0);
+		}
+
+		Scanner scan = new Scanner(System.in);
+
+		int n = scan.nextInt()+1;
+
+		StringBuilder strB = new StringBuilder();
+
+		dataGather(scan, n, strB);
+
+		String[] arr = strB.toString().split("\\s+");
+		
+		try {
+			classifyLength(map, arr);
+		} catch (Exception e) {
+			System.out.println(e.getStackTrace());
+		}
+		
+		displayMap(map);
+		
+		
+	}//main
+
+	private static void dataGather(Scanner scan, int n, StringBuilder strB) {
+		//Data gathering
+		while(n>0) {
+			String temp = scan.nextLine() + " ";
+			temp = temp.trim().replaceAll("[^0-9A-Za-z]", " ");
+			strB.append(temp);
+			n--;
+		}
+	}
+
+	private static void displayMap(HashMap<String, Integer> map) {
+		for (String key : map.keySet()) {
+		    System.out.println(key + " " + map.get(key));
+		}
+	}
+
+	private static void classifyLength(HashMap<String, Integer> map, String[] arr) {
+		//Classify
+		for(int i = 0; i < arr.length; i++) {
+
+			String word = arr[i].trim();
+
+			int length = word.length();
+			
+			int amnt = 0;
+			
+			//Switch case 1-9
+			switch (length) {
+				case 1:
+					
+					amnt = map.get("1");
+					map.replace("1", amnt+1);
+				
+					break;
+					
+				case 2:
+					
+					amnt = map.get("2");
+					map.replace("2", amnt+1);
+				
+					break;
+					
+				case 3:
+					
+					amnt = map.get("3");
+					map.replace("3", amnt+1);
+				
+					break;
+				
+				case 4:
+					
+					amnt = map.get("4");
+					map.replace("4", amnt+1);
+				
+					break;
+					
+				case 5:
+					
+					amnt = map.get("5");
+					map.replace("5", amnt+1);
+				
+					break;
+					
+				case 6:
+					
+					amnt = map.get("6");
+					map.replace("6", amnt+1);
+				
+					break;
+				case 7:
+					
+					amnt = map.get("7");
+					map.replace("7", amnt+1);
+				
+					break;
+				case 8:
+					
+					amnt = map.get("8");
+					map.replace("8", amnt+1);
+				
+					break;
+					
+				case 9:
+					
+					amnt = map.get("9");
+					map.replace("9", amnt+1);
+				
+					break;
+
+				default:
+					throw new NumberFormatException("Unknown length number.");
+			}//switch
+		}//for
+	}
+
+}
