@@ -1,5 +1,6 @@
 /*
  * Leetcode: 605. Can Place Flowers
+ * Optimized without a counter.
  */
 class Solution {
     public boolean canPlaceFlowers(int[] flowerbed, int n) {
@@ -10,14 +11,12 @@ class Solution {
         // if there is a 0, validate
         // to validate, (flowerBed(i-1) == 0 && (i-1) < 0 )
         // && (flowerBed(i + 1) == 0 && (i+1) > flowerbed.length()) 
-        // if valid, count++
+        // if valid, discount placed flower
 
-        // if count is <= n return true else return false
+        // if n == 0 return true else return false
 
-        if(flowerbed.length < n || flowerbed.length == 0)
-            return false;
-
-        int count = 0;
+        if(n == 0)
+            return true;
 
         for( int i = 0; i < flowerbed.length; i++){
 
@@ -28,16 +27,14 @@ class Solution {
                 if((i-1 < 0 || flowerbed[i-1] == 0) && (i+1 > flowerbed.length - 1 || flowerbed[i+1] == 0)){
                     //mark plotted
                     flowerbed[i] = 1;
-                    count++;
+                    n--;
+                    if(n == 0){
+                        return true;
+                    }
                 }
             }
         }
+        return false;
 
-        System.out.println(count);
-
-        if(n <= count)
-            return true;
-        else
-            return false;
     }
 }
