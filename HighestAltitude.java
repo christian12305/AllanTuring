@@ -1,6 +1,4 @@
-package codenights;
 
-import java.util.*;
 
 public class HighestAltitude {
 

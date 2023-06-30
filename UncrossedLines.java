@@ -1,4 +1,3 @@
-package codenights;
 
 public class UncrossedLines {
 

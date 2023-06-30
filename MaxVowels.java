@@ -1,4 +1,3 @@
-package codenights;
 
 import java.util.*;
 
