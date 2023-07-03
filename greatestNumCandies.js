@@ -14,7 +14,7 @@ var kidsWithCandies = function(candies, extraCandies) {
     //result[i] = false;
 
     let result = [];
-
+    //...candies spread operator
     let max = Math.max(...candies);
 
     for(let i = 0; i < candies.length; i++){
