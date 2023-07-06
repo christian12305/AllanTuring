@@ -37,6 +37,7 @@ var longestOnes = function(nums, k) {
             k++
         }
 
+        //tracks the maximum window of 1s
         maxCount = Math.max(maxCount, right - left + 1);
 
     }
