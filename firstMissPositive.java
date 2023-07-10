@@ -2,7 +2,6 @@
  * Leetcode 41. First Missing Positive
  */
 
-import java.util.Arrays;
 
 class Solution {
     public int firstMissingPositive(int[] nums) {
