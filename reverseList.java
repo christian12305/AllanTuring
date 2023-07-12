@@ -36,7 +36,7 @@ class Solution {
             //store the rest of the old list
             ListNode next = curr.next;
 
-            //attaches the list the the next of the head
+            //attaches the list the next of the head
             curr.next = newList;
 
             //updates the head of the newList
