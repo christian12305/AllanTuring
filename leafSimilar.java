@@ -43,10 +43,8 @@ class Solution {
 
         //having left first to keep the correct order in our string
         //from left to right
-        if(root.left != null)
-            dfs(root.left, s);
-        if(root.right != null)
-            dfs(root.right, s);
+        dfs(root.left, s);
+        dfs(root.right, s);
 
         //doesnt return anything, it is stored in the stringBuilder
     }
