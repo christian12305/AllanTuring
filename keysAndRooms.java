@@ -21,12 +21,15 @@ class Solution {
 
             int curr = queue.remove();
 
+            //HERE is the BFS part where we mark all the given keys in a room
+
             //get the keys
             //mark as visited
             for(Integer i : rooms.get(curr)){
+                
+                //if not visited, mark as visited
                 if(!list[i]){  
                     queue.add(i);    
-                    //if not visited, mark as visited        
                     list[i] = true;
                 }
 
