@@ -12,31 +12,54 @@ class Solution {
         //marking first one as visited since
         list[0] = true;
 
-        //DFS approach
-        //we need a stack to store the keys that we have
-        Stack<Integer> keys = new Stack();
+        //BFS approach
+        Queue<Integer> queue = new LinkedList();
 
-        //insert the first rooms key
-        keys.add(0);
+        queue.add(0);
 
-        while(!keys.isEmpty()){
-            //go into the room with the key at the top of the stack
-            int key = keys.pop();
+        while(!queue.isEmpty()){
 
-            //get the keys in the room
-            for(int k : rooms.get(key)){
-                //visit if not visited
-                if(!list[k]){
-                    //mark as visited
-                    list[k] = true;
-                    //add to our keys this rooms key
-                    //so that we can get that room's keys
-                    keys.add(k);
+            int curr = queue.remove();
+
+            //get the keys
+            //mark as visited
+            for(Integer i : rooms.get(curr)){
+                if(!list[i]){  
+                    queue.add(i);    
+                    //if not visited, mark as visited        
+                    list[i] = true;
                 }
-                //if visited, we dont have to add its keys again
+
             }
+                
         }
 
+        // //DFS approach
+        // //we need a stack to store the keys that we have
+        // Stack<Integer> keys = new Stack();
+
+        // //insert the first room's key
+        // keys.add(0);
+
+        // while(!keys.isEmpty()){
+        //     //go into the room with the key at the top of the stack
+        //     int key = keys.pop();
+
+        //     //get the keys in the room
+        //     for(int k : rooms.get(key)){
+        //         //visit if not visited
+        //         if(!list[k]){
+        //             //mark as visited
+        //             list[k] = true;
+        //             //add to our keys this rooms key
+        //             //so that we can get that room's keys
+        //             keys.add(k);
+        //         }
+        //         //if already visited, we dont have to add its keys again
+        //     }
+        // }
+
+        //verify rooms visited
         for(boolean r : list){
             //found a room not visited
             if(!r){
