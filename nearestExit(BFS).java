@@ -1,6 +1,6 @@
 // Leetcode: 1926. Nearest Exit from Entrance in Maze
 import java.util.*;
-class Solution {
+class Solution1 {
     public int nearestExit(char[][] maze, int[] entrance) {
 
         int rows = maze.length, cols = maze[0].length;
@@ -70,7 +70,7 @@ class Solution {
             }
         }
 
-        // If we finish iterating without finding an exit, return -1.
+        // If we finish iterating the queue without finding an exit, return -1.
         return -1;
     }
 }
