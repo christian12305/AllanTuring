@@ -55,6 +55,7 @@ class Solution {
         //sum sign to count if its an original edge
             
         for(List<Integer> neighbors : adjacencyMap.get(node)){
+            //neighbors {(b, sign) (c, sign)}
             int neighbor = neighbors.get(0);
             int sign = neighbors.get(1);
 
@@ -64,7 +65,7 @@ class Solution {
             //so if we use the artificial edge to travel from parent to node, 
             //we are adding a 0 (sign), else we add 1 (sign).
 
-            //to not visit twice the parent
+            //to not visit twice the parent and keep the parent -> node order
             if(parent != neighbor){
                 count += sign;
                 //enter dfs to the neighbor
