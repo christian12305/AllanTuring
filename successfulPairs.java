@@ -32,13 +32,7 @@ class Solution {
         //O(n)
         for(int i = 0; i < n; i++){
 
-            long minValid = (long) Math.ceil( 1.0* success / spells[i]);
-
-            // //outofbounds
-            // if(minValid > potions[potions.length-1]){
-            //     result[i] = 0;
-            //     continue;
-            // }
+            long minValid = (long) Math.ceil( 1.0 * success / spells[i]);
                 
 
             //O(log n)
