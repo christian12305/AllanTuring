@@ -31,7 +31,7 @@ class Solution {
         for(int i : piles)
             hi = Math.max(hi, i);
 
-        //to store result
+        //to store result, first possibility is the highest value in piles
         int result = hi;
 
         //Binary Search
