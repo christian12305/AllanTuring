@@ -36,61 +36,61 @@ var minCostClimbingStairs = function(cost) {
 
     //////TIME LIMIT EXCEEDED////////
 
-    let map = new Map();
+    //let map = new Map();
 
     //DP TOP-DOWN APPROACH//
 
-    // const topdown = (n) =>{
+    const topdown = (n) =>{
 
-    //     //base case
-    //     if(n === cost.length-1 || n === cost.length - 2)
-    //         return cost[n];
+        //base case
+        if(n === cost.length-1 || n === cost.length - 2)
+            return cost[n];
 
-    //     //to obtain an already stored value
-    //     if(map[n] != null)
-    //         return map[n];
+        //to obtain an already stored value
+        if(map[n] != null)
+            return map[n];
 
-    //     //extra layer to store each of the values
-    //     map[n] = cost[n] + Math.min(topdown(n+1), topdown(n+2));
+        //extra layer to store each of the values
+        map[n] = cost[n] + Math.min(topdown(n+1), topdown(n+2));
 
-    //     return map[n];
+        return map[n];
 
-    // }
+    }
 
-    // return Math.min(topdown(0), topdown(1));
+    return Math.min(topdown(0), topdown(1));
 
     //WORKING 63ms//
 
     //DP BOTTOM-UP APPROACH//
 
-    let first = cost[0];
-    let second = cost[1];
+    // let first = cost[0];
+    // let second = cost[1];
 
-    //if no calculation needed
-    if(cost.length < 2)
-        return Math.min(first, second);
+    // //if no calculation needed
+    // if(cost.length < 2)
+    //     return Math.min(first, second);
 
 
-    //SIMILAR TO FIBONACCI
-    //we need the two numbers before i to compare the minimum cost
-    //either single or double jump
+    // //SIMILAR TO FIBONACCI
+    // //we need the two numbers before i to compare the minimum cost
+    // //either single or double jump
 
-    //iterate from the third item to the last
-    for(let i = 2; i < cost.length; i++){
+    // //iterate from the third item to the last
+    // for(let i = 2; i < cost.length; i++){
 
-        //decide if single or double jump
-        //?
-        //first -> double jump
-        //second -> single jump
-        //?
-        let temp = cost[i] + Math.min(first, second);
+    //     //decide if single or double jump
+    //     //?
+    //     //first -> double jump
+    //     //second -> single jump
+    //     //?
+    //     let temp = cost[i] + Math.min(first, second);
 
-        //moving for next iteration comparison
-        first = second;
-        //stores the 
-        second = temp;
-    }
+    //     //moving for next iteration comparison
+    //     first = second;
+    //     //stores the 
+    //     second = temp;
+    // }
 
-    return Math.min(first, second);
+    // return Math.min(first, second);
 
 };
