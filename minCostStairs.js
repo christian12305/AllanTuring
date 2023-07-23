@@ -36,7 +36,7 @@ var minCostClimbingStairs = function(cost) {
 
     //////TIME LIMIT EXCEEDED////////
 
-    //let map = new Map();
+    let map = new Map();
 
     //DP TOP-DOWN APPROACH//
 
