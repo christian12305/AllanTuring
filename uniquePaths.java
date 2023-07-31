@@ -20,7 +20,7 @@ class Solution {
         }
 
         for(int i = 1; i < m; i++){
-            for(int j = 1; i < n; j++){
+            for(int j = 1; j < n; j++){
 
                 //for the rest calculate using the sum of up and left
                 //(BOTTOM UP)
