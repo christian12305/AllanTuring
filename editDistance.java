@@ -1,7 +1,5 @@
 //Leetcode: 72. Edit Distance
-import java.util.Arrays;
-
-class Solution {
+class Solution1 {
     public int minDistance(String word1, String word2) {
         //we want to enter recursively through the options
         //of each word in word1, based on word2
@@ -16,11 +14,11 @@ class Solution {
         int dp[][] = new int[word1.length()+1][word2.length()+1];
 
         //the extra row and extra column will be storing the minimum amount of operations
-        //needed to obtain the other word
+        //needed to obtain the other word (eg. word length - current position)
         //so this also attacks the base case where one or the other
-        //has an empty string
+        //has an empty string (being the length the minimum operations)
 
-        //fill last col
+        //fill last col 
         for(int i = 0; i <= word1.length(); i++){
             dp[i][word2.length()] = word1.length()-i;
         }
@@ -46,6 +44,8 @@ class Solution {
                     int insert = dp[i][j+1];
                     int delete = dp[i+1][j];
                     int replace = dp[i+1][j+1];
+                    //finding the minimum operations recursively
+                    //but adding one, indicating an operation being made
                     dp[i][j] = 1 + Math.min(insert, Math.min(delete, replace));
                 }
             }
